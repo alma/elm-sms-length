@@ -1,4 +1,7 @@
-module SmsLength exposing (charsUsed, charsInSms)
+module SmsLength exposing
+    ( charsUsed, charsInSms
+    , numberOfSms
+    )
 
 {-| SmsLength
 
@@ -59,6 +62,15 @@ charsUsed message =
             |> List.sum
 
 
+{-| Tell the number of chars per SMS with regards to the mandatory message encoding
+
+  - Handle the GSM Charset
+  - Handle the GSM extended charset (a character counts for two 7-bit chars)
+  - Handle the UCS-2 charset (all characters counts for 2 bytes)
+
+A SMS is allowed for 140 bytes, multipart SMS needs a 7 bytes header to be linked to each other's.
+
+-}
 charsInSms : Message -> Int
 charsInSms message =
     let
@@ -77,6 +89,21 @@ charsInSms message =
 
     else
         160
+
+
+{-| Tell the number of SMS message mandatory with regards to the current message string and encoding
+-}
+numberOfSms : Message -> Int
+numberOfSms message =
+    let
+        message_length =
+            charsUsed message
+
+        chars_per_sms =
+            charsInSms message
+    in
+    (toFloat message_length / toFloat chars_per_sms)
+        |> ceiling
 
 
 gsmCharset : List Char

@@ -14,11 +14,26 @@ SmsLength.charsUsed "Hello World!"
 SmsLength.charsAvailable "Hello World!"
 160
 
+SmsLength.numberOfSms <| String.repeat 160 "H"
+1
+
+SmsLength.numberOfSms <| String.repeat 161 "H"
+2
+
 SmsLength.charsUsed "Hello World 🎅"
 14
 
 SmsLength.charsAvailable "Hello World 🎅"
 70
+
+SmsLength.numberOfSms "Hello World 🎅"
+1
+
+SmsLength.numberOfSms <| String.repeat 70 "🎅"
+1
+
+SmsLength.numberOfSms <| String.repeat 71 "🎅"
+2
 
 ```
 

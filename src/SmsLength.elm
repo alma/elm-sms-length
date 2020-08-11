@@ -7,7 +7,15 @@ module SmsLength exposing
 
 Utilities arround SMS messages and their length with regards to the necessary encoding.
 
+
+# How many chars are used, how much chars do I have by SMS?
+
 @docs charsUsed, charsInSms
+
+
+# How many SMS do I need?
+
+@docs numberOfSms
 
 -}
 

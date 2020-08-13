@@ -99,7 +99,7 @@ charsInSms message =
         160
 
 
-{-| Tell the number of SMS message mandatory with regards to the current message string and encoding
+{-| Tell the number of SMS messages mandatory with regards to the current message string and encoding
 -}
 numberOfSms : Message -> Int
 numberOfSms message =

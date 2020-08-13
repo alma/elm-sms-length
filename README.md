@@ -11,7 +11,7 @@ import SmsLength
 SmsLength.charsUsed "Hello World!"
 12
 
-SmsLength.charsAvailable "Hello World!"
+SmsLength.charsInSms "Hello World!"
 160
 
 SmsLength.numberOfSms <| String.repeat 160 "H"
@@ -23,7 +23,7 @@ SmsLength.numberOfSms <| String.repeat 161 "H"
 SmsLength.charsUsed "Hello World 🎅"
 14
 
-SmsLength.charsAvailable "Hello World 🎅"
+SmsLength.charsInSms "Hello World 🎅"
 70
 
 SmsLength.numberOfSms "Hello World 🎅"
@@ -34,7 +34,6 @@ SmsLength.numberOfSms <| String.repeat 70 "🎅"
 
 SmsLength.numberOfSms <| String.repeat 71 "🎅"
 2
-
 ```
 
 ## Contributing

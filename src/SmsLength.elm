@@ -20,10 +20,6 @@ Utilities arround SMS messages and their length with regards to the necessary en
 -}
 
 
-type alias Message =
-    String
-
-
 isGSMChar : Char -> Bool
 isGSMChar c =
     List.member c gsmCharset
@@ -34,7 +30,7 @@ isExtendedGMSChar c =
     List.member c gsmExtendedCharset
 
 
-isUCS2 : Message -> Bool
+isUCS2 : String -> Bool
 isUCS2 message =
     String.toList message
         |> List.all (\c -> isGSMChar c || isExtendedGMSChar c)
@@ -59,7 +55,7 @@ gsmCharWeight c =
 A SMS is allowed for 140 bytes, multipart SMS needs a 7 bytes header to be linked to each other's.
 
 -}
-charsUsed : Message -> Int
+charsUsed : String -> Int
 charsUsed message =
     if isUCS2 message then
         String.length message
@@ -79,7 +75,7 @@ charsUsed message =
 A SMS is allowed for 140 bytes, multipart SMS needs a 7 bytes header to be linked to each other's.
 
 -}
-charsInSms : Message -> Int
+charsInSms : String -> Int
 charsInSms message =
     let
         message_length =
@@ -87,7 +83,7 @@ charsInSms message =
     in
     if isUCS2 message then
         if message_length > 70 then
-            63
+            67
 
         else
             70
@@ -101,7 +97,7 @@ charsInSms message =
 
 {-| Tell the number of SMS messages mandatory with regards to the current message string and encoding
 -}
-numberOfSms : Message -> Int
+numberOfSms : String -> Int
 numberOfSms message =
     let
         message_length =

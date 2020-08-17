@@ -1,6 +1,6 @@
 # elm-sms-length lib
 
-[![Build Status](https://travis-ci.org/alma/elm-sms-length.svg?branch=master)](https://travis-ci.org/alma/elm-sms-length)
+[![Build Status](https://travis-ci.org/alma/elm-sms-length.svg?branch=main)](https://travis-ci.org/alma/elm-sms-length)
 
 
 ## Example

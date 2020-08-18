@@ -16,8 +16,8 @@ all =
             [ test "handle char count in the GSM charset" <|
                 \() ->
                     Expect.equal
-                        12
-                        (SmsLength.charsUsed "Hello World!")
+                        14
+                        (SmsLength.charsUsed "Hello World\u{000D}\n!")
             , test "handle char count in the GSM extended charset" <|
                 \() ->
                     Expect.equal
